@@ -1,0 +1,4 @@
+Description: This stack will be created!
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
