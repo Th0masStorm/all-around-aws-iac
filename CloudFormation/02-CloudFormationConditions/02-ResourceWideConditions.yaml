@@ -1,0 +1,32 @@
+Description: This template sets different deletions policies for RDS instances based on the env
+Parameters:
+  Env:
+    Type: String
+    AllowedValues: [ "test", "prod" ]
+    Default: test
+    ConstraintDescription: Only "test" and "prod" values are allowed
+Conditions:
+  IsProd: !Equals [ Env, "prod" ]
+  IsTest: !Equals [ Env, "test" ]
+Resources:
+  ProdDb:
+    Type: AWS::RDS::DBInstance
+    # Only string values are allowed!
+    Condition: IsProd
+    DeletionPolicy: Retain
+    Properties:
+      DBInstanceClass: db.t2.micro
+      DBName: MyDB
+      MasterUsername: MyUser
+      MasterUserPassword: SuperSecurePassword1234
+
+  TestDb:
+    Type: AWS::RDS::DBInstance
+    # Only string values are allowed!
+    Condition: IsTest
+    DeletionPolicy: Snapshot
+    Properties:
+      DBInstanceClass: db.t2.micro
+      DBName: MyDB
+      MasterUsername: MyUser
+      MasterUserPassword: SuperSecurePassword1234

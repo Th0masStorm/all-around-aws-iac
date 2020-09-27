@@ -1,0 +1,19 @@
+Description: This template provisions different instance type depending on the env
+Parameters:
+  Env:
+    Type: String
+    AllowedValues: ["dev", "test", "prod"]
+    Default: dev
+    ConstraintDescription: Only "dev", "test" and "prod" values are allowed
+  LatestAmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
+Conditions:
+  IsTest: !Equals [Env, "test"]
+  IsProd: !Equals [Env, "prod"]
+Resources:
+  Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !Ref LatestAmiId
+      InstanceType: !If [ IsProd, "t3.xlarge", !If [ IsTest, "t3.large", "t3.small" ] ]
