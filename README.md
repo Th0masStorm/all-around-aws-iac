@@ -1,7 +1,7 @@
 # All Around AWS IaCs
 
 This is a semi-workshop semi-list of things I've discovered and noted during my long long experience working with CloudFormation, SAM and recently CDK.
-I write them down as soon as I get time, I do not follow any specific structure except the sturcture of root directories. Chapters are sorted in an order of delivery, I just dump them as is.
+I write them down as soon as I get time, I do not follow any specific structure except the structure of root directories. Chapters are sorted in an order of delivery, I just dump them as is.
 
 Pull requests are welcome!
 
@@ -11,5 +11,7 @@ Pull requests are welcome!
 Simple as that.
 
 ## Table of Contents
-
-// ToDo
+- CloudFormation
+  - [CloudFormation Service roles](CloudFormation/01-CloudFormationServiceRoles)
+  - [CloudFormation Conditions](CloudFormation/02-CloudFormationConditions)
+  - [CloudFormation AWS Specific Parameters](CloudFormation/03-CloudFormationAWSSpecificParameters)
