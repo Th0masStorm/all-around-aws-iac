@@ -1,4 +1,4 @@
-VpcId=vpc-0115fc47f0dc1d57f
-PublicSubnets=subnet-06f042154a27df620,subnet-0e1a66fcecfc1cb36
-PrivateSubnets=subnet-086503ded96b6f593,subnet-001f7f827c26e5adb
-SshKey=karen_epam
+VpcId=vpc-1234
+PublicSubnets=subnet-1234,subnet-5678
+PrivateSubnets=subnet-91011,subnet-121314
+SshKey=KeyName
